@@ -1,0 +1,29 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    "search-bar"
+    "movie-result"
+    "footer";
+}
+
+.search-bar {
+    grid-area: search-bar;
+}
+
+.movie-result {
+    grid-area: movie-result;
+}
+
+.footer {
+    grid-area: footer;
+}
