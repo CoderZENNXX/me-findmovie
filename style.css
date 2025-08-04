@@ -59,7 +59,8 @@ body {
     display: flex;
     background-color: #FFA700;
     position: sticky;
-    top: 104px;
+    top: 114.4px;
+    border-bottom: 2px solid black;
 }
 
 .movie-title, .movie-genre {
@@ -73,7 +74,7 @@ body {
 }
 
 .movie-title-search, .movie-genre-search {
-    width: 14em;
+    width: 12em;
     height: 1.6em;
     flex-shrink: 1;
     white-space: nowrap;
@@ -93,16 +94,6 @@ body {
     flex-shrink: 1;
     white-space: nowrap;
     font-family: Dosis;
-}
-
-@media (max-width: 769px) {
-    .movie-title-search, .movie-genre-search {
-        width: 18em;
-        height: 2em;
-    }
-    .movie-title-input, .movie-genre-input {
-        width: 16em;
-    }
 }
 
 .movie-result {
