@@ -16,13 +16,13 @@ body {
     "search"
     "movie-result"
     "footer";
-    font-family: "Libertinus Sans";
-    overflow-x: hidden;
+    font-family: Dosis;
+    overflow-x: auto;
     overflow-y: hidden;
 }
 
 .title {
-    font-family: "Libertinus Sans";
+    font-family: Dosis;
     grid-area: title;
     display: flex;
     flex-direction: column;
@@ -77,7 +77,7 @@ body {
     height: 1.6em;
     flex-shrink: 1;
     white-space: nowrap;
-    font-family: "Libertinus Sans";
+    font-family: Dosis;
 }
 
 .movie-title {
@@ -92,7 +92,17 @@ body {
     width: 12em;
     flex-shrink: 1;
     white-space: nowrap;
-    font-family: "Libertinus Sans";
+    font-family: Dosis;
+}
+
+@media (max-width: 769px) {
+    .movie-title-search, .movie-genre-search {
+        width: 18em;
+        height: 2em;
+    }
+    .movie-title-input, .movie-genre-input {
+        width: 16em;
+    }
 }
 
 .movie-result {
