@@ -46,7 +46,7 @@ async function fetchMovieJsonByGenre() {
         img.src = movie.poster;
 
         const title = document.createElement("h2");
-        title.className = "movie-title"
+        title.className = "movie-name-title"
         title.textContent = movie.title; 
 
         const details = document.createElement("details");

@@ -112,6 +112,12 @@ body {
     }
 }
 
+@media (max-width: 1304px) {
+    .movie-result {
+        height: 1200vh;
+    }
+}
+
 .movie-card {
     background-color: white;
     width: 700px;
@@ -128,18 +134,21 @@ body {
     float: left;
 }
 
-.movie-title {
+.movie-name-title {
     background: linear-gradient(180deg, red, orange);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .movie-details {
     display: inline-block;
     vertical-align: top;
     margin-left: 1%;
+    margin-top: 0.5%;
 }
 
 .footer {
