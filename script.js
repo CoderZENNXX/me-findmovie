@@ -23,7 +23,7 @@ const genreIds = {
 
 async function fetchMovieJsonByGenre() {
     const body = document.body
-    body.style.overflow = "scroll"
+    body.style.overflowY = "scroll"
 
     const genreSelect = document.querySelector(".movie-genre-input")
     const genreValue = genreSelect.value

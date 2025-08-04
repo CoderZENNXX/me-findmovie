@@ -17,7 +17,8 @@ body {
     "movie-result"
     "footer";
     font-family: "Libertinus Sans";
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .title {
