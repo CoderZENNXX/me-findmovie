@@ -5,22 +5,62 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Me-FindMovie</title>
         <link rel="stylesheet" href="style.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Libertinus+Sans:wght@700&display=swap');
+        </style>
+        <script src="https://kit.fontawesome.com/34d493386b.js" crossorigin="anonymous"></script>
         <script src="/script.js"></script>
     </head>
 
     <body>
-        <nav class="search-bar">
 
+        <header class="title">
+            <h1 class="web-title">Me-FindMovie</h1>
+            <p class="web-subtitle">"We find you movies!!"</p>
+        </header>
+        
+        <nav class="search">
+            <div class="movie-title">
+                <input class="movie-title-input">
+                <button class="movie-title-search" onclick="fetchMovieJson()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Search by Movie Title
+                </button>
+            </div>
+
+            <div class="movie-genre">
+                <button class="movie-genre-search" onclick="fetchMovieJsonByGenre()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Search by Movie Genre
+                </button>
+                <select class="movie-genre-input" name="genres" id="genres" aria-placeholder="Search by Movie Genre">
+                    <option value="28">Action</option>
+                    <option value="12">Adventure</option>
+                    <option value="16">Animation</option>
+                    <option value="35">Comedy</option>
+                    <option value="80">Crime</option>
+                    <option value="99">Documentary</option>
+                    <option value="18">Drama</option>
+                    <option value="10751">Family</option>
+                    <option value="14">Fantasy</option>
+                    <option value="36">History</option>
+                    <option value="27">Horror</option>
+                    <option value="10402">Music</option>
+                    <option value="9648">Mystery</option>
+                    <option value="10749">Romance</option>
+                    <option value="878">Science Fiction</option>
+                    <option value="10770">TV Movie</option>
+                    <option value="53">Thriller</option>
+                    <option value="10752">War</option>
+                    <option value="37">Western</option>
+                </select>
+            </div>
         </nav>
 
         <main class="movie-result">
-            <script>
-                fetchMovieJson()
-            </script>
         </main>
 
         <footer class="footer">
-
         </footer>
     </body>
 </html>

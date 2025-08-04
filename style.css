@@ -9,19 +9,119 @@ html {
 
 body {
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 1fr;
     grid-template-areas: 
-    "search-bar"
+    "title"
+    "search"
     "movie-result"
     "footer";
+    font-family: "Libertinus Sans";
 }
 
-.search-bar {
-    grid-area: search-bar;
+.title {
+    font-family: "Libertinus Sans";
+    grid-area: title;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    border-bottom: 2px solid black;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: navy;
+}
+
+.web-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    background: linear-gradient(180deg, red, orange);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 3em;
+}
+
+.web-subtitle {
+    margin-top: 8px;
+    font-style: italic;
+    color: white;
+    font-size: 1.2em;
+}
+
+.search {
+    grid-area: search;
+    display: flex;
+    background-color: yellow;
+    position: sticky;
+    top: 104px;
+}
+
+.movie-title, .movie-genre {
+    display: flex;
+    flex-shrink: 1;
+    gap: 5px;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    margin-right: 1%;
+    margin-left: 1%;
+}
+
+.movie-title-search, .movie-genre-search {
+    width: 14em;
+    height: 1.6em;
+    flex-shrink: 1;
+    white-space: nowrap;
+    font-family: "Libertinus Sans";
+}
+
+.movie-title {
+    margin-right: auto;
+}
+
+.movie-genre {
+    margin-left: auto;
+}
+
+.movie-title-input, .movie-genre-input {
+    width: 12em;
+    flex-shrink: 1;
+    white-space: nowrap;
+    font-family: "Libertinus Sans";
 }
 
 .movie-result {
     grid-area: movie-result;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: royalblue;
+    gap: 10px;
+    padding: 1%;
+}
+
+.movie-card {
+    background-color: white;
+    width: 350px;
+    height: 450px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 12px 6px 4px rgba(0, 0, 0, 0.1);
+}
+
+.movie-poster {
+    height: 250px;
+    width: auto;
+    z-index: 1;
+}
+
+.movie-details {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 1%;
 }
 
 .footer {
