@@ -22,6 +22,9 @@ const genreIds = {
 };
 
 async function fetchMovieJsonByGenre() {
+    const body = document.body
+    body.style.overflow = "scroll"
+
     const genreSelect = document.querySelector(".movie-genre-input")
     const genreValue = genreSelect.value
 
@@ -42,6 +45,10 @@ async function fetchMovieJsonByGenre() {
         img.className = "movie-poster"
         img.src = movie.poster;
 
+        const title = document.createElement("h2");
+        title.className = "movie-title"
+        title.textContent = movie.title; 
+
         const details = document.createElement("details");
         details.className = "movie-details";
 
@@ -57,18 +64,14 @@ async function fetchMovieJsonByGenre() {
 
         const li = document.createElement("li");
         li.textContent = movie.genre;
-        ul.appendChild(li);
-
-        const title = document.createElement("h2");
-        title.className = "movie-title"
-        title.textContent = movie.title;        
+        ul.appendChild(li);    
 
         details.appendChild(summary);
         details.appendChild(ul);
 
         card.appendChild(img);
-        card.appendChild(details);
         card.appendChild(title);
+        card.appendChild(details);
 
         container.appendChild(card);
     });

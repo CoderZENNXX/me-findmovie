@@ -17,6 +17,7 @@ body {
     "movie-result"
     "footer";
     font-family: "Libertinus Sans";
+    overflow: hidden;
 }
 
 .title {
@@ -55,7 +56,7 @@ body {
 .search {
     grid-area: search;
     display: flex;
-    background-color: yellow;
+    background-color: #FFA700;
     position: sticky;
     top: 104px;
 }
@@ -98,24 +99,40 @@ body {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    background-color: royalblue;
+    background-color: #111827;
     gap: 10px;
     padding: 1%;
+    height: 450vh;
+}
+
+@media (max-width: 1442px) {
+    .movie-result {
+        height: 900vh;
+    }
 }
 
 .movie-card {
     background-color: white;
-    width: 350px;
-    height: 450px;
+    width: 700px;
+    height: 300px;
     border-radius: 5px;
     border: 1px solid black;
     box-shadow: 12px 6px 4px rgba(0, 0, 0, 0.1);
 }
 
 .movie-poster {
-    height: 250px;
+    height: 300px;
     width: auto;
     z-index: 1;
+    float: left;
+}
+
+.movie-title {
+    background: linear-gradient(180deg, red, orange);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .movie-details {
