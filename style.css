@@ -142,9 +142,13 @@ body {
 }
 
 .movie-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
     background-color: white;
     width: 600px;
-    height: 300px;
+    min-height: 300px;
+    max-height: fit-content;
     border-radius: 5px;
     border: 1px solid black;
     box-shadow: 12px 6px 4px rgba(0, 0, 0, 0.1);
@@ -153,8 +157,6 @@ body {
 .movie-poster {
     height: 300px;
     width: auto;
-    z-index: 1;
-    float: left;
 }
 
 .movie-name-title {
@@ -167,11 +169,11 @@ body {
     margin-bottom: 0;
 }
 
-.movie-details {
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 1%;
-    margin-top: 0.5%;
+.details-list-item {
+    margin: 0;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .footer {
