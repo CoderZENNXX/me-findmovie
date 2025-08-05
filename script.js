@@ -76,3 +76,59 @@ async function fetchMovieJsonByGenre() {
         container.appendChild(card);
     });
 }
+
+async function fetchMovieJsonByTitle() {
+    const body = document.body
+    body.style.overflowY = "scroll"
+
+    const titleInput = document.querySelector(".movie-title-input")
+    const titleValue = titleInput.value
+
+    const rawData = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${titleValue}`);
+    const jsonData = await rawData.json()
+    const movieData = jsonData?.results
+
+    const movies = movieData.map(movie => ({poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`, title: movie.title, genre: movie.genre_ids.map(id => genreIds[id]).join(", ") }));
+
+    const container = document.querySelector(".movie-result");
+    container.innerHTML = ""
+
+    movies.forEach(movie => {
+        const card = document.createElement("div");
+        card.className = "movie-card";
+
+        const img = document.createElement("img");
+        img.className = "movie-poster"
+        img.src = movie.poster;
+
+        const title = document.createElement("h2");
+        title.className = "movie-name-title"
+        title.textContent = movie.title; 
+
+        const details = document.createElement("details");
+        details.className = "movie-details";
+
+        const summary = document.createElement("summary");
+        summary.className = "movie-summary";
+
+        const summaryP = document.createElement("p");
+        summaryP.textContent = movie.summary;
+        summary.appendChild(summaryP);
+
+        const ul = document.createElement("ul");
+        ul.className = "movie-info";
+
+        const li = document.createElement("li");
+        li.textContent = movie.genre;
+        ul.appendChild(li);    
+
+        details.appendChild(summary);
+        details.appendChild(ul);
+
+        card.appendChild(img);
+        card.appendChild(title);
+        card.appendChild(details);
+
+        container.appendChild(card);
+    });
+}

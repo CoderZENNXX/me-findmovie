@@ -54,6 +54,15 @@ body {
     font-size: 1.2em;
 }
 
+@media (max-width: 800px) {
+    .web-title {
+        font-size: 4.2em;
+    }
+    .web-subtitle {
+        font-size: 1.65em;
+    }
+}
+
 .search {
     grid-area: search;
     display: flex;
@@ -96,6 +105,19 @@ body {
     font-family: Dosis;
 }
 
+@media (max-width: 800px) {
+    .search {
+        top: 154px;
+    }
+    .movie-title-input, .movie-genre-input {
+        width: 14em;
+        height: 3em;
+    }
+    .movie-title-search, .movie-genre-search, .movie-genre-input {
+        height: 100%;
+    }
+}
+
 .movie-result {
     grid-area: movie-result;
     display: flex;
@@ -104,24 +126,12 @@ body {
     background-color: #111827;
     gap: 10px;
     padding: 1%;
-    height: 450vh;
-}
-
-@media (max-width: 1442px) {
-    .movie-result {
-        height: 900vh;
-    }
-}
-
-@media (max-width: 1304px) {
-    .movie-result {
-        height: 1200vh;
-    }
+    min-height: 100vh;
 }
 
 .movie-card {
     background-color: white;
-    width: 700px;
+    width: 600px;
     height: 300px;
     border-radius: 5px;
     border: 1px solid black;
