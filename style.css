@@ -98,6 +98,9 @@ body {
     flex-shrink: 1;
     white-space: nowrap;
     font-family: Dosis;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
 }
 .movie-title-search, .movie-genre-search, .movie-genre-input {
     height: 100%;
@@ -108,6 +111,9 @@ body {
 .movie-title-search, .movie-genre-search {
     font-size: 1em;
     width: fit-content;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
 }
 
 @media (max-width: 1300px) {
@@ -146,7 +152,7 @@ body {
     align-items: flex-start;
     gap: 10px;
     background-color: white;
-    width: 600px;
+    width: 700px;
     min-height: 300px;
     max-height: fit-content;
     border-radius: 5px;

@@ -25,7 +25,8 @@ async function createHTML(rawData) {
     const jsonData = await rawData.json()
     const movieData = jsonData?.results
     const movies = movieData.map(movie => ({
-      poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`, 
+      poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+      ageRestriction: movie.adult ? "18+" : "PG-13", 
       title: movie.title, 
       genre: movie.genre_ids.map(id => genreIds[id]).join(", "), 
       overview: movie.overview,
@@ -49,7 +50,7 @@ async function createHTML(rawData) {
 
         const title = document.createElement("h2");
         title.className = "movie-name-title"
-        title.textContent = movie.title; 
+        title.innerHTML = `${movie.title}`; 
 
         const details = document.createElement("details");
         details.className = "movie-details";
@@ -60,26 +61,36 @@ async function createHTML(rawData) {
         const ul = document.createElement("ul");
         ul.className = "movie-info";
 
+
+        const ageLi = document.createElement("li");
+        ageLi.className = "details-list-item";
+        ageLi.innerHTML = `Age Restriction: <strong>${movie.ageRestriction}</strong>`;
+        ul.appendChild(ageLi);
+
         const genreLi = document.createElement("li");
         genreLi.className = "details-list-item";
         genreLi.innerHTML = `Genre(s): <strong>${movie.genre}</strong>`;
-        ul.appendChild(genreLi);    
-        const overviewLi = document.createElement("li");
-        overviewLi.className = "details-list-item";
-        overviewLi.innerHTML = `Overview:<br/><i>"${movie.overview}"</i>`;
-        ul.appendChild(overviewLi);
+        ul.appendChild(genreLi);
+
         const dateLi = document.createElement("li");
         dateLi.className = "details-list-item";
         dateLi.innerHTML = `Release Date: <strong>${movie.releaseDate}</strong>`;
         ul.appendChild(dateLi);
+
         const voteLi = document.createElement("li");
         voteLi.className = "details-list-item";
         voteLi.innerHTML = `Average Vote: <strong>${movie.averageVote}/10</strong>`;
         ul.appendChild(voteLi);
+
         const countLi = document.createElement("li");
         countLi.className = "details-list-item";
         countLi.innerHTML = `Vote Count: <strong>${movie.voteCount}</strong> person(s)`;
         ul.appendChild(countLi);
+        
+        const overviewLi = document.createElement("li");
+        overviewLi.className = "details-list-item";
+        overviewLi.innerHTML = `Overview:<br/><i>"${movie.overview}"</i>`;
+        ul.appendChild(overviewLi);
 
         details.appendChild(ul);
         movieDisplayInfo.appendChild(title)
