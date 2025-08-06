@@ -35,75 +35,78 @@ async function createHTML(rawData) {
       voteCount: movie.vote_count
     }));
 
-    const body = document.body
-    body.style.overflowY = "scroll"
-    const container = document.querySelector(".movie-result");
-    container.innerHTML = ""
+    if (movies.length) {
+        const body = document.body
+        body.style.overflowY = "scroll"
+        const container = document.querySelector(".movie-result");
+        container.innerHTML = ""
 
-    movies.forEach(movie => {
-        const card = document.createElement("div");
-        card.className = "movie-card";
-
-        const img = document.createElement("img");
-        const defaultImage = "defaultImage.png";
-        img.className = "movie-poster"
-        img.src = movie.poster;
-        img.onerror = () => {
-            img.src = defaultImage;
-        };
-
-        const title = document.createElement("h2");
-        title.className = "movie-name-title"
-        title.innerHTML = `${movie.title}`; 
-
-        const details = document.createElement("details");
-        details.className = "movie-details";
-
-        const movieDisplayInfo = document.createElement("div");
-        movieDisplayInfo.className = "movie-display-info";
-
-        const ul = document.createElement("ul");
-        ul.className = "movie-info";
-
-        const ageLi = document.createElement("li");
-        ageLi.className = "details-list-item";
-        ageLi.innerHTML = `Age Restriction: <strong>${movie.ageRestriction}</strong>`;
-        ul.appendChild(ageLi);
-
-        const genreLi = document.createElement("li");
-        genreLi.className = "details-list-item";
-        genreLi.innerHTML = `Genre(s): <strong>${movie.genre}</strong>`;
-        ul.appendChild(genreLi);
-
-        const dateLi = document.createElement("li");
-        dateLi.className = "details-list-item";
-        dateLi.innerHTML = `Release Date: <strong>${movie.releaseDate}</strong>`;
-        ul.appendChild(dateLi);
-
-        const voteLi = document.createElement("li");
-        voteLi.className = "details-list-item";
-        voteLi.innerHTML = `Average Vote: <strong>${movie.averageVote}/10</strong> (on TMDB)`;
-        ul.appendChild(voteLi);
-
-        const countLi = document.createElement("li");
-        countLi.className = "details-list-item";
-        countLi.innerHTML = `Vote Count: <strong>${movie.voteCount}</strong> person(s) (on TMDB)`;
-        ul.appendChild(countLi);
-
-        const overviewLi = document.createElement("li");
-        overviewLi.className = "details-list-item";
-        overviewLi.innerHTML = movie.overview ? `Overview:<br/><i>"${movie.overview}"</i>` : "Overview: Unavailable";
-        ul.appendChild(overviewLi);
-
-        details.appendChild(ul);
-        movieDisplayInfo.appendChild(title)
-        movieDisplayInfo.appendChild(details);
-
-        card.appendChild(img);
-        card.appendChild(movieDisplayInfo);
-
-        container.appendChild(card);
-    });
+        movies.forEach(movie => {
+            const card = document.createElement("div");
+            card.className = "movie-card";
+        
+            const img = document.createElement("img");
+            const defaultImage = "defaultImage.png";
+            img.className = "movie-poster"
+            img.src = movie.poster;
+            img.onerror = () => {
+                img.src = defaultImage;
+            };
+          
+            const title = document.createElement("h2");
+            title.className = "movie-name-title"
+            title.innerHTML = `${movie.title}`; 
+          
+            const details = document.createElement("details");
+            details.className = "movie-details";
+          
+            const movieDisplayInfo = document.createElement("div");
+            movieDisplayInfo.className = "movie-display-info";
+          
+            const ul = document.createElement("ul");
+            ul.className = "movie-info";
+          
+            const ageLi = document.createElement("li");
+            ageLi.className = "details-list-item";
+            ageLi.innerHTML = `Age Restriction: <strong>${movie.ageRestriction}</strong>`;
+            ul.appendChild(ageLi);
+          
+            const genreLi = document.createElement("li");
+            genreLi.className = "details-list-item";
+            genreLi.innerHTML = `Genre(s): <strong>${movie.genre}</strong>`;
+            ul.appendChild(genreLi);
+          
+            const dateLi = document.createElement("li");
+            dateLi.className = "details-list-item";
+            dateLi.innerHTML = `Release Date: <strong>${movie.releaseDate}</strong>`;
+            ul.appendChild(dateLi);
+          
+            const voteLi = document.createElement("li");
+            voteLi.className = "details-list-item";
+            voteLi.innerHTML = `Average Vote: <strong>${movie.averageVote}/10</strong> (on TMDB)`;
+            ul.appendChild(voteLi);
+          
+            const countLi = document.createElement("li");
+            countLi.className = "details-list-item";
+            countLi.innerHTML = `Vote Count: <strong>${movie.voteCount}</strong> person(s) (on TMDB)`;
+            ul.appendChild(countLi);
+          
+            const overviewLi = document.createElement("li");
+            overviewLi.className = "details-list-item";
+            overviewLi.innerHTML = movie.overview ? `Overview:<br/><i>"${movie.overview}"</i>` : "Overview: Unavailable";
+            ul.appendChild(overviewLi);
+          
+            details.appendChild(ul);
+            movieDisplayInfo.appendChild(title)
+            movieDisplayInfo.appendChild(details);
+          
+            card.appendChild(img);
+            card.appendChild(movieDisplayInfo);
+          
+            container.appendChild(card);
+        });
+    }
+    
 }
 
 async function fetchMovieJsonByGenre() {
