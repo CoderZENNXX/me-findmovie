@@ -45,8 +45,12 @@ async function createHTML(rawData) {
         card.className = "movie-card";
 
         const img = document.createElement("img");
+        const defaultImage = "defaultImage.png";
         img.className = "movie-poster"
         img.src = movie.poster;
+        img.onerror = () => {
+            img.src = defaultImage;
+        };
 
         const title = document.createElement("h2");
         title.className = "movie-name-title"
@@ -60,7 +64,6 @@ async function createHTML(rawData) {
 
         const ul = document.createElement("ul");
         ul.className = "movie-info";
-
 
         const ageLi = document.createElement("li");
         ageLi.className = "details-list-item";
@@ -79,17 +82,17 @@ async function createHTML(rawData) {
 
         const voteLi = document.createElement("li");
         voteLi.className = "details-list-item";
-        voteLi.innerHTML = `Average Vote: <strong>${movie.averageVote}/10</strong>`;
+        voteLi.innerHTML = `Average Vote: <strong>${movie.averageVote}/10</strong> (on TMDB)`;
         ul.appendChild(voteLi);
 
         const countLi = document.createElement("li");
         countLi.className = "details-list-item";
-        countLi.innerHTML = `Vote Count: <strong>${movie.voteCount}</strong> person(s)`;
+        countLi.innerHTML = `Vote Count: <strong>${movie.voteCount}</strong> person(s) (on TMDB)`;
         ul.appendChild(countLi);
-        
+
         const overviewLi = document.createElement("li");
         overviewLi.className = "details-list-item";
-        overviewLi.innerHTML = `Overview:<br/><i>"${movie.overview}"</i>`;
+        overviewLi.innerHTML = movie.overview ? `Overview:<br/><i>"${movie.overview}"</i>` : "No overview available.";
         ul.appendChild(overviewLi);
 
         details.appendChild(ul);
