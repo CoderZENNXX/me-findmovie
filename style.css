@@ -115,8 +115,16 @@ body {
     width: fit-content;
     background-color: black;
     color: white;
-    border: 1px solid black;
+    border: 1px solid #000000;
     border-radius: 10px;
+}
+
+.movie-title-input {
+    transition: border-radius 0.4s;
+}
+
+.movie-title-input:focus {
+    border-radius: 0;
 }
 
 .movie-title-search:hover, .movie-genre-search:hover, .movie-genre-input:hover {

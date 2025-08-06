@@ -92,7 +92,7 @@ async function createHTML(rawData) {
 
         const overviewLi = document.createElement("li");
         overviewLi.className = "details-list-item";
-        overviewLi.innerHTML = movie.overview ? `Overview:<br/><i>"${movie.overview}"</i>` : "No overview available.";
+        overviewLi.innerHTML = movie.overview ? `Overview:<br/><i>"${movie.overview}"</i>` : "Overview: Unavailable";
         ul.appendChild(overviewLi);
 
         details.appendChild(ul);
