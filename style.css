@@ -21,6 +21,10 @@ body {
     overflow-y: hidden;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 .title {
     font-family: Dosis;
     grid-area: title;
@@ -128,6 +132,7 @@ body {
 }
 
 .movie-title-search:hover, .movie-genre-search:hover, .movie-genre-input:hover {
+    cursor: pointer;
     background-color: #FFA700;
     color: black;
 }
@@ -174,12 +179,16 @@ body {
     gap: 10px;
     background-color: white;
     width: 700px;
-    min-height: 300px;
-    max-height: fit-content;
+    height: 300px;
     border-radius: 20px;
     border: 1px solid black;
     box-shadow: 12px 6px 4px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
     transition: transform 0.4s;
+}
+
+.movie-card::-webkit-scrollbar {
+    display: none;
 }
 
 .movie-card:hover {
