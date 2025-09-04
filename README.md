@@ -6,7 +6,7 @@ The perfect website for your movie cravings. Search up any movie with your prefe
 - Status: Up
 
 ## Tech
-React • CSS
+JavaScript • CSS
 
 ## Features
 - Search up any movies with its title
