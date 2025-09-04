@@ -1,6 +1,5 @@
 # Me-FindMovie
-
-Short 1–2 line value statement.
+The perfect website for your movie cravings. Search up any movie with your preferences.
 
 ## Live Demo
 - URL: https://me-findmovie4u.netlify.app/
